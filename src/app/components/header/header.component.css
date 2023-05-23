@@ -1,0 +1,63 @@
+#logo {
+    font-size: xx-large;
+    font-weight: bolder;
+    color: var(--theme-purple-color);
+    cursor: pointer;
+}
+
+#search-form {
+    display: flex;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width: max(50%, 300px);
+    background-color: var(--main-bg-color);
+    border-radius: 0.5rem;
+    padding-right: 1rem;
+}
+
+#query {
+    flex: 1;
+    border: none;
+    height: 2rem;
+    background-color: var(--main-bg-color);
+    border-radius: 0.5rem;
+    padding-left: 2rem;
+}
+
+#header-actions {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+ion-icon {
+    cursor: pointer;
+}
+
+ion-icon[name=search-outline] {
+    color: gray;
+}
+
+input:focus {
+    outline: none;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+#signup-btn {
+    padding: 0.5rem 2rem;
+    background-color: var(--main-blue-color);
+    
+}
+
+#signup-btn>a {
+    text-decoration: none;
+    color: white;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

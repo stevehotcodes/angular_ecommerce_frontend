@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+:root {
+    --main-bg-color: #F5F5F5;
+    --drop-shadow: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+    --theme-purple-color: #832BCE;
+    --main-blue-color: #2DD3DB;
+}
+
+
+app-header {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 60px;
+    background-color: white;
+    filter: var(--drop-shadow);
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 2rem;
+    gap: 1rem;
+    width: 100%;
+}
+
+body {
+    background-color: var(--main-bg-color);
+    width: 100%;
+    min-height: 100svh;
+    margin: 0;
+}
+
+.hover-underline:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-position: under;
+    text-decoration-color: var(--theme-purple-color);
+}
