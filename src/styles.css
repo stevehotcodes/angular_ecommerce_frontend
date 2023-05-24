@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+  @import url('https://fonts.googleapis.com/css2?family=Jost&family=Montserrat&display=swap');
+
 
 :root {
     --main-bg-color: #F5F5F5;
@@ -9,7 +11,9 @@
     --main-blue-color: #2DD3DB;
     --default-box-shadow: 0 0 5px rgba(0,0,0,0.2)
 }
-
+*{
+    font-family: 'Jost', 'Montserrat', sans-serif;
+}
 
 body {
     background-color: var(--main-bg-color);
@@ -102,4 +106,13 @@ app-popular-products {
     flex: 1;
     background-color: white;
     box-shadow: var(--default-box-shadow);
+}
+
+app-signup,app-signin{
+    /* width:50vw; */
+    /* height:90vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
