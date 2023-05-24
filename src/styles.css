@@ -1,1 +1,105 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+:root {
+    --main-bg-color: #F5F5F5;
+    --secondary-bg-color: #F1F0F0;
+    --drop-shadow: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+    --theme-purple-color: #832BCE;
+    --main-blue-color: #2DD3DB;
+    --default-box-shadow: 0 0 5px rgba(0,0,0,0.2)
+}
+
+
+body {
+    background-color: var(--main-bg-color);
+    width: 100%;
+    min-height: 100svh;
+    margin: 0;
+}
+
+app-root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100svh;
+    width: 100%;
+}
+
+app-header {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 60px;
+    background-color: white;
+    filter: var(--drop-shadow);
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0.5rem 0.5rem;
+    gap: 1rem;
+    width: 100%;
+    top: 0;
+    position: sticky;
+    box-sizing: border-box;
+}
+
+app-footer {
+    /* position: sticky;
+    bottom: 0; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--secondary-bg-color);
+    box-sizing: border-box;
+    gap: 1rem;
+    min-height: 4rem;
+    padding: 1rem 0;
+}
+
+
+.hover-underline:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-position: under;
+    text-decoration-color: var(--theme-purple-color);
+}
+
+app-mainpage {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+app-categories {
+    /* max-width: 200px; */
+    box-shadow: var(--default-box-shadow);
+    height: max-content;
+}
+
+@media (min-width:901px) {
+    app-categories {
+        width: 200px;
+    }
+}
+
+app-carousel {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+app-popular-products {
+    flex: 1;
+    background-color: white;
+    box-shadow: var(--default-box-shadow);
+}

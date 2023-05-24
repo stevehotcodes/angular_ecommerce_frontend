@@ -1,0 +1,12 @@
+#footer-company-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#footer-company-links>div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}

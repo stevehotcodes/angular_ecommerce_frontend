@@ -1,0 +1,41 @@
+
+
+#carousel {
+    
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+    /* background: url();
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 626px;
+    height: 176px; */
+    /* flex: 1; */
+}
+
+#image {
+    background: url(../../../assets/black-friday-elements-assortment_23-2149074076.avif);
+    flex: 1;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+ion-icon {
+    position: absolute;
+}
+
+/* img {
+    width: 100%;
+    height: 100%;
+} */
+
+
+ion-icon[name="chevron-back-outline"] {
+    left: 2rem;
+}
+
+ion-icon[name="chevron-forward-outline"] {
+    right: 2rem;
+}
