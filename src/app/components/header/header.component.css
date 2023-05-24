@@ -11,7 +11,7 @@
     width: max(50%, 300px);
     background-color: var(--main-bg-color);
     border-radius: 0.5rem;
-    padding-right: 1rem;
+    justify-self: center;
 }
 
 #query {
@@ -21,6 +21,7 @@
     background-color: var(--main-bg-color);
     border-radius: 0.5rem;
     padding-left: 2rem;
+    box-sizing: border-box;
 }
 
 #header-actions {
@@ -31,6 +32,7 @@
 
 ion-icon {
     cursor: pointer;
+    margin: 0 5px;
 }
 
 ion-icon[name=search-outline] {
@@ -53,6 +55,10 @@ input:focus {
     
 }
 
+#signup-btn:hover {
+    background-color: #1a73e8;
+}
+
 #signup-btn>a {
     text-decoration: none;
     color: white;
@@ -60,4 +66,11 @@ input:focus {
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+
+@media (max-width: 893px) {
+    #search-form {
+        order: 1
+    }
 }
