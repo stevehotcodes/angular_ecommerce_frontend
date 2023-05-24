@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { FooterComponent } from './components/footer/footer.component';
+import { MainpageComponent } from './components/mainpage/mainpage.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     HeaderComponent,
     FooterComponent,
+    MainpageComponent,
     IonicModule.forRoot()
   ],
   providers: [],

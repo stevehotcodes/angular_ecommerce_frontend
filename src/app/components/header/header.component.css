@@ -51,7 +51,7 @@ input:focus {
 
 #signup-btn {
     padding: 0.5rem 2rem;
-    background-color: var(--main-blue-color);
+    background-color: var(--theme-purple-color);
     
 }
 
@@ -64,12 +64,8 @@ input:focus {
     color: white;
 }
 
-.cursor-pointer {
-    cursor: pointer;
-}
 
-
-@media (max-width: 893px) {
+@media (max-width: 868px) {
     #search-form {
         order: 1
     }
