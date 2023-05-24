@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup,ReactiveFormsModule,FormControl } from '@angular/forms';
+import { FormGroup,ReactiveFormsModule,FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
@@ -15,8 +15,8 @@ export class SigninComponent implements OnInit {
 
 ngOnInit() {
   this.form=new FormGroup({
-     email:new FormControl(''),
-     password:new FormControl('')
+     email:new FormControl('', [Validators.required]),
+     password:new FormControl('', [Validators.required])
   })
 }
 
