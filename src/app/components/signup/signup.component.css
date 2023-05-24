@@ -21,7 +21,7 @@ form{
     margin: auto;
     padding: 1.5rem;
     box-sizing: border-box;
-    box-shadow : 0 0 5px rgba(0, 0, 0, 0.2)
+    box-shadow : var(--default-box-shadow)
 
     
 }
@@ -32,7 +32,7 @@ button{
     padding: 1rem;
 }
 button:hover {
-    background-color: #1a73e8;
+    background-color: var(--main-blue-color)
 }
 h2{
     text-align: center;

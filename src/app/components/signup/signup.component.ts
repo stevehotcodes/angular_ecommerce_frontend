@@ -13,7 +13,7 @@ import { FormGroup, ReactiveFormsModule,FormControl,Validators } from '@angular/
 export class SignupComponent implements OnInit {
  form!:FormGroup
 
- registerForm!:FormGroup
+
  constructor(){
  
  }
@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
       lastname:new FormControl('',[Validators.required]),
       email:new FormControl('',[Validators.required,Validators.email]),
       password:new FormControl('', [Validators.required]),
-      confirmPassword:new FormControl()
+      confirmPassword:new FormControl('',[Validators.required])
   
     })
   
