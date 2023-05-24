@@ -12,8 +12,7 @@
     --default-box-shadow: 0 0 5px rgba(0,0,0,0.2)
 }
 *{
-    font-family: 'Jost', sans-serif;
-font-family: 'Montserrat', sans-serif;
+    font-family: 'Jost', 'Montserrat', sans-serif;
 }
 
 body {
