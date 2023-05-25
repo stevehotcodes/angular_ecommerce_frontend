@@ -14,12 +14,13 @@
 }
 
 #image {
-    background: url(../../../assets/black-friday-elements-assortment_23-2149074076.avif);
-    flex: 1;
-    height: 100%;
-    background-repeat: no-repeat;
+    /* background-image: url(../../../assets/black-friday-elements-assortment_23-2149074076.avif); */
+    /* flex: 1; */
+    width: 100%;
+    /* background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center; */
+    max-height: 100%;
 }
 
 ion-icon {

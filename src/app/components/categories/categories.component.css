@@ -1,4 +1,14 @@
+#categories {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
 
+.category {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+}
 
 @media (max-width: 900px) {
     #categories {
