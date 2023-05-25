@@ -1,7 +1,7 @@
-import { Product } from "src/app/interfaces";
+import { IProduct } from "src/app/interfaces";
 
 
-export const products:Product[] = 
+export const products:IProduct[] = 
     [
         {
           id: "10d5ad36-6936-4666-ad04-040bb45316f0",
@@ -11,7 +11,7 @@ export const products:Product[] =
           image: "https://img.ebdcdn.com/product/front/white/pl6605.jpg?im=Resize,width=700,height=350,aspect=fill;UnsharpMask,sigma=1.0,gain=1.0"
         },
         {
-          id: "5abcc5af-7657-497d-b0dc-8103b2ddff43",
+          id: "5abcc5af-7657-497d-b0dc-8103b2dIdff43",
           productName: "iPhone 15",
           productDescription: "Silver iPhone 15",
           price: 112000,

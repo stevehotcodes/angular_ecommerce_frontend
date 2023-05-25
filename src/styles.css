@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
+  @import url('https://fonts.googleapis.com/css2?family=Jost&family=Montserrat&display=swap');
+
 
 :root {
     --main-bg-color: #F5F5F5;
@@ -12,7 +14,9 @@
     --light-green: #23D18B;
     --light-red: #F9685E;
 }
-
+*{
+    font-family: 'Jost', 'Montserrat', sans-serif;
+}
 
 body {
     background-color: var(--main-bg-color);
@@ -132,6 +136,7 @@ app-popular-products {
 
 app-product-card {
     box-shadow: var(--default-box-shadow);
+
     height: 228px;
     width: min(200px, 80svw);
     display: flex;
@@ -169,3 +174,24 @@ app-not-found {
     justify-content: center;
     flex: 1;
 }
+
+}
+
+app-signup,app-signin{
+    /* width:50vw; */
+    /* height:90vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+app-products-details{
+  
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    gap:1.5rem;
+}
+
+

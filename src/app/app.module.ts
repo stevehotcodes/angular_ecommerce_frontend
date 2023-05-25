@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainpageComponent } from './components/mainpage/mainpage.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { MainpageComponent } from './components/mainpage/mainpage.component';
     HeaderComponent,
     FooterComponent,
     MainpageComponent,
+    SignupComponent,
     IonicModule.forRoot()
   ],
   providers: [],
