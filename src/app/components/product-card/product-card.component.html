@@ -1,8 +1,8 @@
 <div id="product-image" [style.background-image]="'url(' + product.image + ')'">
 </div>
 
-<div>{{product.productName}}</div>
+<div>{{product.productName.length > 50 ? (product.productName | slice:0:40) + '...' : product.productName}}</div>
 
-<div>{{product.price}}</div>
+<div>{{ product.price | currency : 'Ksh ' : 'symbol' : '1.2-2' }}</div>
 
 <button class="add-to-cart cursor-pointer">Add to Cart</button>
