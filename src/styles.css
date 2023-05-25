@@ -86,6 +86,7 @@ app-categories {
     position: sticky;
     top: 8svh;
     z-index: 999;
+    padding: 0.5rem;
 }
 
 @media (min-width:901px) {
