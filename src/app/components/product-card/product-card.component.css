@@ -1,0 +1,19 @@
+#product-image {
+    width: 90%;
+    flex: 1;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+
+.add-to-cart {
+    background-color: var(--theme-purple-color);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+.add-to-cart:hover {
+    background-color: var(--theme-lighter-purple);
+}
