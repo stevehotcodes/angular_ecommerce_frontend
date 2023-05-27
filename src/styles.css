@@ -193,5 +193,15 @@ app-products-details{
     flex-direction: column;
     gap:1.5rem;
 }
+app-cart{
+    display:flex;
+    /* border:2px solid red; */
+    flex:1;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center
+    
+}
+
 
 
