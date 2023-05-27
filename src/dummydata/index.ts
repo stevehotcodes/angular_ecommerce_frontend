@@ -1,4 +1,5 @@
-import { IProduct } from "src/app/interfaces";
+import { ICart,IProduct } from "src/app/interfaces";
+
 
 
 export const products:IProduct[] = 
@@ -61,3 +62,11 @@ export const products:IProduct[] =
         }
       
     ]
+    export const cart:ICart []=[{
+      id: "5abcc5af-7657-497d-b0dc-8103b2ddff43",
+      productName: "iPhone 15",
+      productDescription: "Silver iPhone 15",
+      price: 112000,
+      image: "https://i.wpimg.pl/1280x/filerepo.grupawp.pl/api/v1/display/embed/ffc16f9e-0fde-4ebc-9e40-66c402a4f572",
+      quantity:5
+    }]
