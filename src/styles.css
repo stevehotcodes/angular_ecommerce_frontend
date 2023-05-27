@@ -195,7 +195,7 @@ app-products-details{
 }
 app-cart{
     display:flex;
-    /* border:2px solid red; */
+    
     flex:1;
     flex-wrap:wrap;
     gap:20px;
