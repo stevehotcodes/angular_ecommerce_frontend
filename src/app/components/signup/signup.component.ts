@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, ReactiveFormsModule,FormControl,Validators } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule,Validators, FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -11,21 +11,32 @@ import { FormGroup, ReactiveFormsModule,FormControl,Validators } from '@angular/
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
- form!:FormGroup
+ signupForm!:FormGroup
+ textColor:string="red"
+ errorMsgFontSize:number=.7
+ 
 
-
- constructor(){
+ constructor(private formBuilder:FormBuilder){
  
  }
   ngOnInit(){
-    this.form =new FormGroup({
-      firstname:new FormControl('',[Validators.required]),
-      lastname:new FormControl('',[Validators.required]),
-      email:new FormControl('',[Validators.required,Validators.email]),
-      password:new FormControl('', [Validators.required]),
-      confirmPassword:new FormControl('',[Validators.required])
+    this.signupForm =this.formBuilder.group({
+      firstname:['',[Validators.required,Validators.maxLength(2)]],
+      lastname:['',[Validators.required]],
+      email:['',[Validators.required,Validators.email]],
+      password:['', [Validators.required,Validators.minLength(6)]],
+      confirmPassword:['',[Validators.required]]
   
     })
   
+  
+  }
+  onSubmit(){
+    if(this.signupForm.valid){
+     console.log("successfull")
+    }
+    else{
+      console.log("invalid")
+    }
   }
 }
