@@ -203,5 +203,9 @@ app-cart{
     
 }
 
-
+app-checkout{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
 
