@@ -8,9 +8,12 @@
     --secondary-bg-color: #F1F0F0;
     --drop-shadow: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
     --theme-purple-color: #832BCE;
+    --theme-lighter-purple: #b42bce;
     --main-blue-color: #2DD3DB;
     --default-box-shadow: 0 0 5px rgba(0,0,0,0.2);
     --secondary-blue-color: #1a73e8
+    --light-green: #23D18B;
+    --light-red: #F9685E;
 }
 
 *{
@@ -19,9 +22,9 @@
 
 body {
     background-color: var(--main-bg-color);
-    width: 100%;
-    min-height: 100svh;
     margin: 0;
+    min-height: 100svh;
+    width: 100%;
 }
 
 app-root {
@@ -33,31 +36,27 @@ app-root {
 }
 
 app-header {
-    display: flex;
-    flex-wrap: wrap;
-    min-height: 60px;
-    background-color: white;
-    filter: var(--drop-shadow);
     align-items: center;
-    justify-content: space-evenly;
-    padding: 0.5rem 0.5rem;
-    gap: 1rem;
-    width: 100%;
-    top: 0;
-    position: sticky;
+    background-color: white;
     box-sizing: border-box;
+    display: flex;
+    filter: var(--drop-shadow);
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-evenly;
+    min-height: 60px;
+    padding: 0.5rem 0.5rem;
+    width: 100%;
 }
 
 app-footer {
-    /* position: sticky;
-    bottom: 0; */
-    display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-around;
     background-color: var(--secondary-bg-color);
     box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
+    justify-content: space-around;
     min-height: 4rem;
     padding: 1rem 0;
 }
@@ -65,24 +64,35 @@ app-footer {
 
 .hover-underline:hover {
     text-decoration: underline;
+    text-decoration-color: var(--theme-purple-color);
     text-decoration-thickness: 3px;
     text-underline-position: under;
-    text-decoration-color: var(--theme-purple-color);
 }
 
 app-mainpage {
-    flex: 1;
+    box-sizing: border-box;
     display: flex;
+    flex: 1;
+    flex-wrap: wrap;
     gap: 1rem;
     padding: 1rem;
-    box-sizing: border-box;
-    flex-wrap: wrap;
 }
+
+@media(max-width: 660px) {
+    app-mainpage {
+        flex-direction: column;
+    }
+}
+
 
 app-categories {
     /* max-width: 200px; */
     box-shadow: var(--default-box-shadow);
     height: max-content;
+    position: sticky;
+    top: 8svh;
+    z-index: 999;
+    padding: 0.5rem;
 }
 
 @media (min-width:901px) {
@@ -92,10 +102,13 @@ app-categories {
 }
 
 app-carousel {
-    height: 200px;
-    display: flex;
     align-items: center;
+    display: flex;
+    /* flex: 1; */
     justify-content: space-between;
+    max-height: 352px;
+    min-height: 100px;
+    min-width: 300px;
     position: relative;
 }
 
@@ -105,9 +118,65 @@ app-carousel {
 }
 
 app-popular-products {
+    /* background-color: white; */
+    /* box-shadow: var(--default-box-shadow); */
     flex: 1;
-    background-color: white;
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+#flash-messages {
+    background-color: var(--light-green);
+    color: white;
+    padding: 0.2rem;
+    font-size: large;
+    text-align: center;
+}
+
+app-product-card {
     box-shadow: var(--default-box-shadow);
+
+    height: 228px;
+    width: min(200px, 80svw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+app-product-card:hover {
+    background-color: white;
+}
+
+
+@media(max-width: 480px) {
+    app-product-card {
+        width: 80svw;
+    }
+}
+
+app-recommended-products {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    min-width: 300px;
+    gap: 1rem
+}
+
+
+app-not-found {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
 }
 
 app-signup,app-signin{
@@ -126,4 +195,5 @@ app-products-details{
     flex-direction: column;
     gap:1.5rem;
 }
+
 

@@ -3,4 +3,5 @@ export interface IProduct {
     productName:string
     productDescription:string
     price:number
+    image:string
 }
