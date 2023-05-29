@@ -1,33 +1,49 @@
 
 <form [formGroup]="signupForm"(ngSubmit)="onSubmit()">
     <h2>Sign up</h2>
-    <label for="">Firstname</label><br><br>
-    <input type="text"  formControlName="firstname" placeholder="firstsname" required><br><br>
+
+    <div class="form-input">
+        <label for="">Firstname</label>
+        <input type="text"  formControlName="firstname" placeholder="firstname" required>
         <div *ngIf="signupForm.get('firstname')!.errors && signupForm.get('firstname')!.touched sf">
             <div *ngIf="signupForm.get('firstname')?.hasError('required')" [style.color]="textColor" [style.font-size.rem]="errorMsgFontSize">Firstname is required</div>
-        </div>        
-    <label for="">Lastname</label><br><br>
-    <input type="text"  formControlName="lastname" placeholder="lastname"><br><br>
-    <div *ngIf="signupForm.get('lastname')!.errors && signupForm.get('lastname')!.touched">
-        <div *ngIf="signupForm.get('lastname')?.hasError('required')" [style.color]="textColor" [style.font-size.rem]="errorMsgFontSize">Lastname is required</div>
-    </div> 
+        </div>
+    </div>
+
+    <div class="form-input">
+        <label for="">Lastname</label>
+        <input type="text"  formControlName="lastname" placeholder="lastname">
+        <div *ngIf="signupForm.get('lastname')!.errors && signupForm.get('lastname')!.touched">
+            <div *ngIf="signupForm.get('lastname')?.hasError('required')" [style.color]="textColor" [style.font-size.rem]="errorMsgFontSize">Lastname is required</div>
+        </div> 
+    </div>
     
-    <label for="">Email</label><br><br>
-    <input type="email"  formControlName="email" placeholder="email"><br><br>
-    <div *ngIf="signupForm.get('email')!.errors && signupForm.get('email')!.touched">
-        <div *ngIf="signupForm.get('email')?.hasError('required')" [style.color]="textColor" [style.font-size.rem]="errorMsgFontSize">email is required</div>
-    </div> 
-    <label>Password</label><br><br>
-    <input type="password" formControlName="password" placeholder="password"><br><br>
-    <div *ngIf="signupForm.get('password')!.errors && signupForm.get('password')!.touched">
-        <div *ngIf="signupForm.get('password')?.hasError('required')" [style.color]="textColor" [style.font-size.rem]="errorMsgFontSize">password is required</div>
-    </div> 
-    <label for="">Confirm Password</label><br><br>
-    <input type="password" formControlName="confirmPassword" placeholder="confirmPassword"><br><br>
-    <div *ngIf="signupForm.get('password')!.errors && signupForm.get('password')!.touched">
-        <div *ngIf="signupForm.get('password')?.hasError('required')" [style.color]="textColor" [style.font-size.rem]="errorMsgFontSize">password is required</div>
-    </div> 
+    <div class="form-input">
+        <label for="">Email</label>
+        <input type="email"  formControlName="email" placeholder="email@example.com">
+        <div *ngIf="signupForm.get('email')!.errors && signupForm.get('email')!.touched">
+            <div *ngIf="signupForm.get('email')?.hasError('required')" [style.color]="textColor" [style.font-size.rem]="errorMsgFontSize">email is required</div>
+        </div> 
+    </div>
+
+    <div class="form-input">
+        <label>Password</label>
+        <input type="password" formControlName="password" placeholder="******">
+        <div *ngIf="signupForm.get('password')!.errors && signupForm.get('password')!.touched">
+            <div *ngIf="signupForm.get('password')?.hasError('required')" [style.color]="textColor" [style.font-size.rem]="errorMsgFontSize">password is required</div>
+        </div>
+    </div>
+
+    <div class="form-input">
+        <label for="">Confirm Password</label>
+        <input type="password" formControlName="confirmPassword" placeholder="******">
+        <div *ngIf="signupForm.get('password')!.errors && signupForm.get('password')!.touched">
+            <div *ngIf="signupForm.get('password')?.hasError('required')" [style.color]="textColor" [style.font-size.rem]="errorMsgFontSize">password is required</div>
+        </div> 
+    </div>
+
     <button type="submit" >Sign up</button>
-     
+    
+    <div>Already a customer, <a routerLink="/signin">Sign in</a></div>
 </form>
 
