@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Product } from 'src/app/interfaces';
+import { IProduct } from 'src/app/interfaces';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent {
-  @Input() product!:Product
+  @Input() product!:IProduct
 
   constructor() {
 

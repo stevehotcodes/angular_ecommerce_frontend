@@ -1,0 +1,28 @@
+<div id="selected-products">
+    <div class="cart-item-div" *ngFor="let cartItem of cartItems">
+        <div id="cart-item">
+            <div id="selected-product-image" [ngStyle]="{'background-image': 'url( ' + cartItem.image + ' )'}"></div>
+            
+            <div class="cart-item-description">
+                <div id="selected-product-name">{{cartItem.productName}}</div>
+                <div id="selected-product-detail">{{cartItem.productDescription}}</div>
+                <div id="selected-product-price">Price: {{cartItem.price | currency : 'Ksh ' : 'symbol' : '1.2-2' }}</div>
+            </div>
+        </div>
+
+        <div id="cart-actions">
+            <div id="quantity">
+                <ion-icon name="remove-circle-outline" size="large" class="action-btn"></ion-icon>
+                <div>5</div>
+                <ion-icon name="add-circle-outline" size="large" class="action-btn"></ion-icon>
+            </div>
+            <div id="trash" class="action-btn"><ion-icon name="trash" size="large"></ion-icon>Remove</div>
+        </div>
+    </div>
+</div>
+
+<div id=cart-summary>
+    <div id="cart-summary-title">Cart Summary</div>
+    <div id="total">Total: {{cartTotal | currency : 'Ksh ' : 'symbol' : '1.2-2' }} </div>
+    <button id="checkout-btn" routerLink="/checkout">Checkout</button>
+</div>
