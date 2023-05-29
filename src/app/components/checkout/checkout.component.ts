@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule,FormControl } from '@angular/forms';
-import { products } from 'src/dummydata';
-import { IProduct } from 'src/app/interfaces';
+import { cartItems } from 'src/dummydata';
+import { ICartItem, IProduct } from 'src/app/interfaces';
 
 @Component({
   selector: 'app-checkout',
@@ -12,9 +12,12 @@ import { IProduct } from 'src/app/interfaces';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
- product:IProduct[]=products
- checkoutForm!:FormGroup
+ items:ICartItem[] = cartItems
+ total:number = this.items.reduce((accum:number, curr:ICartItem) => {
+  return accum + (curr.price * curr.quantity)
+ }, 0)
 
+ checkoutForm!:FormGroup
 
  constructor(){}
 

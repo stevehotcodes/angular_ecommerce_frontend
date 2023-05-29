@@ -84,7 +84,6 @@ app-mainpage {
 
 
 app-categories {
-    /* max-width: 200px; */
     box-shadow: var(--default-box-shadow);
     height: max-content;
     position: sticky;
@@ -102,7 +101,6 @@ app-categories {
 app-carousel {
     align-items: center;
     display: flex;
-    /* flex: 1; */
     justify-content: space-between;
     max-height: 352px;
     min-height: 100px;
@@ -116,8 +114,6 @@ app-carousel {
 }
 
 app-popular-products {
-    /* background-color: white; */
-    /* box-shadow: var(--default-box-shadow); */
     flex: 1;
     padding: 0.5rem;
     display: flex;
@@ -136,7 +132,6 @@ app-popular-products {
 
 app-product-card {
     box-shadow: var(--default-box-shadow);
-
     height: 228px;
     width: min(200px, 80svw);
     display: flex;
@@ -178,8 +173,6 @@ app-not-found {
 
 
 app-signup,app-signin{
-    /* width:50vw; */
-    /* height:90vh; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -195,11 +188,11 @@ app-products-details{
 }
 app-cart{
     display:flex;
-    
     flex:1;
     flex-wrap:wrap;
     gap:20px;
-    justify-content:center
+    justify-content:center;
+    margin: 1rem;
     
 }
 
@@ -207,5 +200,8 @@ app-checkout{
     display:flex;
     flex-wrap: wrap;
     flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    flex: 1;
 }
 

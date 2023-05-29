@@ -1,68 +1,28 @@
-<div id="header"><h2>Checkout</h2></div>
- <div id="checkout-container">
-<div id="form" >
-    <h3>Billing Details</h3>
-    <form action="" [formGroup]="checkoutForm">
-     
-            <label for="Customer's Name">Customer's Name</label><br>
-            <input type="text" name="customerName" formControlName="customerName"><br>
-            <label for="Town">Town</label><br>
-            <input type="text" name="Town" formControlName="town"><br>
-            <label for="Email">Email</label><br>
-            <input type="text" name="email" formControlName="email"> <br>  
-            <button id="order-btn">Make an order</button>  
-    </form>
-  
-</div>
-<div class="orders-total-section">
-        <div>Your Orders</div>
-        <div id="orders-section">
-              
-                <div class="orders">
-                       
-                        <div id="checkout-product-image"></div>
-                        <div class="short-order-summary">
-                           <div id="checkout-product-details">Product ConX2</div>
-                           <div id="checkout-quantity">2</div>
-                        </div>
-                       
-                   </div>
-                        <div id="checkout-price" > sh. 1000</div>
-        </div>
-        <div id="orders-section">
-              
-                <div class="orders">
-                       
-                        <div id="checkout-product-image"></div>
-                        <div class="short-order-summary">
-                           <div id="checkout-product-details">Product ConX2</div>
-                           <div id="checkout-quantity">2</div>
-                        </div>
-                       
-                   </div>
-                        <div id="checkout-price" > sh. 1000</div>
-        </div>
-        <div id="orders-section">
-              
-                <div class="orders">
-                       
-                        <div id="checkout-product-image"></div>
-                        <div class="short-order-summary">
-                           <div id="checkout-product-details">Product ConX2</div>
-                           <div id="checkout-quantity">2</div>
-                        </div>
-                       
-                   </div>
-                        <div id="checkout-price" > sh. 1000</div>
-        </div>
-          
-        <div id="checkout-total">
-                <div id="total">Total </div>
-                <div id="total-amount-payable"><p> Ksh 10000</p></div>
-        </div>
-</div>
+<h1 id="header">Checkout</h1>
 
-    
+<div id="checkout-container">
+	<div id="details">
+		<h3>Total: {{total | currency : 'Ksh ' : 'symbol' : '1.2-2' }}</h3>
 
-    
- </div>
+		<div id="billing-details">
+			<h3>Billing Details</h3>
+			<div>Customer Name</div>
+			<div>email@example.com</div>
+		</div>
+		<button id="order-btn">Make Order</button>
+	</div>
+
+	<div id="order-items">
+		<h3>You're about to order these items</h3>
+		<div class="order-item" *ngFor="let item of items">
+			<div class="item-image" [ngStyle]="{'background-image': 'url( ' + item.image + ' )'}" ></div>
+			<div class="item-name">{{item.productName}}</div>
+			<div class="item-pricing">
+				<span class="item-quantity">{{item.quantity}}</span>
+				 x 
+				 <span class="item-price">{{item.price | currency : 'Ksh ' : 'symbol' : '1.2-2'}}</span>
+			</div>
+		</div>
+	</div>
+
+</div>
