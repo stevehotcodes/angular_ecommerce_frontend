@@ -56,7 +56,7 @@ input:focus {
 }
 
 #signup-btn:hover {
-    background-color: #1a73e8;
+    background-color: var(--secondary-blue-color);
 }
 
 #signup-btn>a {

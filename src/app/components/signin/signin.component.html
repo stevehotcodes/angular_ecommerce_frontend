@@ -1,11 +1,23 @@
-<form [formGroup]="form">
-    <h2>Sign in</h2>
+<form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+     <h2>Sign in</h2>
   
-    <label>Email</label><br><br>
-    <input type="email" formControlName="email"><br><br>
-    <label>Password</label><br><br>
-    <input type="password" formControlName="password"><br><br>
+    <div class="form-input">
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="email@example.com">
+        <div *ngIf="signinForm.get('email')!.errors && signinForm.get('email')!.touched">
+            <div *ngIf="signinForm.get('email')?.hasError('required')" [style.color]="textColor" [style.font-size.rem]="errorMsgFontSize">email is required</div>
+        </div>
+    </div>
+
+    <div class="form-input">
+        <label>Password</label>
+        <input type="password" formControlName="password" placeholder="******">
+        <div *ngIf="signinForm.get('password')!.errors && signinForm.get('password')!.touched">
+            <div *ngIf="signinForm.get('password')?.hasError('required')" [style.color]="textColor" [style.font-size.rem]="errorMsgFontSize">password is required</div>
+        </div> 
+    </div>
     
     <button type="submit">Sign in</button>
-     
+
+    <div>New customer, <a routerLink="/signup">Sign up</a></div>
 </form>
