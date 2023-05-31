@@ -165,7 +165,7 @@ app-flash-message {
 app-product-card {
     box-shadow: var(--default-box-shadow);
     height: 228px;
-    width: min(200px, 80svw);
+    width: min(260px, 90svw);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -173,6 +173,8 @@ app-product-card {
     box-sizing: border-box;
     gap: 0.5rem;
     cursor: pointer;
+    font-size: large;
+    font-weight: 700;
 }
 
 app-product-card:hover {
