@@ -1,0 +1,10 @@
+app-product-card {
+    height: 180px;
+    width: 150px;
+}
+
+#heading {
+    width: 100%;
+    font-size: xx-large;
+    font-weight: 500;
+}
