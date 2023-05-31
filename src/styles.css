@@ -11,7 +11,7 @@
     --theme-lighter-purple: #b42bce;
     --main-blue-color: #2DD3DB;
     --default-box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    --secondary-blue-color: #1a73e8
+    --secondary-blue-color: #1a73e8;
     --light-green: #23D18B;
     --light-red: #F9685E;
 }
@@ -47,6 +47,9 @@ app-header {
     min-height: 60px;
     padding: 0.5rem 0.5rem;
     width: 100%;
+    position: sticky;
+    top:0;
+    z-index: 999;
 }
 
 app-footer {
@@ -125,11 +128,38 @@ app-popular-products {
 }
 
 #flash-messages {
-    background-color: var(--light-green);
+    position: fixed;
+    z-index: 999;
+    top: 5svh;
+    right: 5svw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    width: min(400px, 60svw);
+}
+
+app-flash-message {
     color: white;
-    padding: 0.2rem;
+    padding: 0.2rem 0.5rem;
     font-size: large;
     text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0.9;
+    border-radius: 5px;
+}
+
+.error {
+    background-color: var(--light-red);
+}
+
+.success {
+    background-color: var(--light-green);
+}
+
+.info {
+    background-color: gray;
 }
 
 app-product-card {
