@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { InewUserData, IuserCredentials } from '../interfaces';
+import { InewUserData, IuserCredentials, IuserData } from '../interfaces';
 import { FlashMessagesService } from './flash-messages.service';
 import { AuthService } from './auth.service';
 
@@ -60,5 +60,9 @@ export class UserService {
 
     signout() {
 
+    }
+
+    getSignedInUser():Observable<IuserData> {
+        return this.client.get<IuserData>(this.baseUrl + '/user')
     }
 }
