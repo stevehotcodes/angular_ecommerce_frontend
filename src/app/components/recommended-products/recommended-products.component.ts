@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../product-card/product-card.component';
-import { IProduct } from 'src/app/interfaces';
-import { products } from 'src/dummydata';
+import { Iproduct } from 'src/app/interfaces';
+// import { products } from 'src/dummydata';
 import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-recommended-products',
@@ -13,5 +14,6 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./recommended-products.component.css']
 })
 export class RecommendedProductsComponent {
-  products:IProduct[] = products.sort(() => Math.random() - 0.5).slice(0,4)
+  products:Iproduct[] = []
+  // products.sort(() => Math.random() - 0.5).slice(0,4)
 }

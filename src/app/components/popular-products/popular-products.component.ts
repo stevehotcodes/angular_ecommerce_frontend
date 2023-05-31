@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../product-card/product-card.component';
-import { products } from 'src/dummydata';
+// import { products } from 'src/dummydata';
 import { RouterModule } from '@angular/router';
-import { IProduct } from 'src/app/interfaces';
+import { Iproduct } from 'src/app/interfaces';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -14,12 +14,13 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./popular-products.component.css']
 })
 export class PopularProductsComponent {
-  products:IProduct[] = []
+  products:Iproduct[] = []
 
   constructor(private productsService:ProductsService) {
     this.productsService.getAllProducts().subscribe(
       res=>{
-        this.products=res
+        res.sort(() => Math.random() - 0.5)
+        this.products=res.slice(0,16)
         
       }
     )

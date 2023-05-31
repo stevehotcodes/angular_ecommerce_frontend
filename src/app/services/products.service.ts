@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IProduct } from '../interfaces';
+import { Iproduct } from '../interfaces';
 import { Observable } from 'rxjs';
 
 
@@ -11,14 +11,14 @@ export class ProductsService {
   baseUrl:string
   
   constructor(private client:HttpClient) { 
-    this.baseUrl = 'http://localhost:4000'
+    this.baseUrl = 'http://localhost:4000/products'
   }
 
-  getAllProducts():Observable<IProduct[]>{
-    return this.client.get<IProduct[]>(this.baseUrl + '/products')
+  getAllProducts():Observable<Iproduct[]>{
+    return this.client.get<Iproduct[]>(this.baseUrl)
   }
-  getProduct(){
-    return this.client.get<IProduct[]>(this.baseUrl + "/product/id")
+  getProduct(id:number):Observable<Iproduct>{
+    return this.client.get<Iproduct>(this.baseUrl + "/" + id)
   }
   
 }
