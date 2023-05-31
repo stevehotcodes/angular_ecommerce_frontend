@@ -4,6 +4,7 @@ import { IProduct } from 'src/app/interfaces';
 import { products } from 'src/dummydata';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-products-details',
@@ -14,5 +15,11 @@ import { IonicModule } from '@ionic/angular';
 })
 export class ProductsDetailsComponent {
  products:IProduct[]=products
+ constructor (private productService:ProductsService){
+  
 
-}
+  }
+ }
+ 
+
+

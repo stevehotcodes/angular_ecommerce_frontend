@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { products } from 'src/dummydata';
 import { RouterModule } from '@angular/router';
+import { IProduct } from 'src/app/interfaces';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-popular-products',
@@ -12,5 +14,16 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./popular-products.component.css']
 })
 export class PopularProductsComponent {
-  products = products
+  products:IProduct[] = []
+
+  constructor(private productsService:ProductsService) {
+    this.productsService.getAllProducts().subscribe(
+      res=>{
+        this.products=res
+        
+      }
+    )
+  }
+
+  
 }
