@@ -15,9 +15,28 @@ export interface IcartItem {
     image:string
 }
 
-export interface Iimage {
-    id:number
-    imageURL:string
-    isMain:boolean
-    productID:string
+export interface ICartItem extends IProduct {
+    quantity:number
+}
+
+export interface IflashMessage {
+    type: 'error' | 'success' | 'info'
+    message:string
+}
+
+export interface IloggedUser {
+    email:string
+    token:string
+}
+
+export interface InewUserData {
+    firstname:string
+    lastname:string
+    email:string
+    password:string
+}
+
+export interface IuserCredentials {
+    email:string
+    password:string
 }
