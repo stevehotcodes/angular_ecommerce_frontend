@@ -8,7 +8,9 @@ import { IonicModule } from '@ionic/angular';
 import { FooterComponent } from './components/footer/footer.component';
 import { MainpageComponent } from './components/mainpage/mainpage.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { HttpClientModule } from '@angular/common/http'
+import { FlashMessageComponent } from './components/flash-message/flash-message.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { InterceptorService } from './services/interceptor.service';
 
 
 @NgModule({
@@ -19,15 +21,14 @@ import { HttpClientModule } from '@angular/common/http'
     BrowserModule,
     AppRoutingModule,
     HeaderComponent,
+    FlashMessageComponent,
     FooterComponent,
     MainpageComponent,
     SignupComponent,
-    IonicModule.forRoot(),
-    HttpClientModule
-    
-
+    HttpClientModule,
+    IonicModule.forRoot()
   ],
-  providers: [],
+  providers: [{provide:HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
