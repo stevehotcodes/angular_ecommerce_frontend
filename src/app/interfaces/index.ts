@@ -15,6 +15,7 @@ export interface IcartItem {
     image:string
 }
 
+
 export interface Iimage {
     id:number
     imageURL:string
