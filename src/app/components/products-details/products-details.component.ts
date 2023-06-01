@@ -5,6 +5,8 @@ import { Iproduct } from 'src/app/interfaces';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ProductsService } from 'src/app/services/products.service';
+import { CartService } from 'src/app/services/cart.service';
+import { FlashMessagesService } from 'src/app/services/flash-messages.service';
 
 
 @Component({
@@ -18,7 +20,7 @@ export class ProductsDetailsComponent implements OnInit {
 	id!: number
 	product!: Iproduct
 
-	constructor(private productsService: ProductsService, private route:ActivatedRoute) {
+	constructor(private productsService: ProductsService, private route:ActivatedRoute, private cartService:CartService, private flash:FlashMessagesService) {
 	}
 
 	ngOnInit(): void {
@@ -27,6 +29,30 @@ export class ProductsDetailsComponent implements OnInit {
 			this.product = data
 		})
 	}
+
+	addToCart(){
+		console.log(this.product.id);
+		
+		this.cartService.addItemtoCart(this.product.id).subscribe(
+		  (res)=>{
+			this.flash.pushMessage(
+			  {
+				type:"success",
+				message:res.message
+			  }
+			)
+			this.cartService.updateCartItems()
+		  },
+		  (err)=>{
+			this.flash.pushMessage(
+			  {
+				type:"error",
+				message:err.message
+			  }
+			)
+		  }
+		)
+	  }
 }
 
 

@@ -49,6 +49,17 @@ input:focus {
     gap: 2rem;
 }
 
+#cart-icon {
+    display: flex;
+    align-items: center;
+}
+
+#cart-counter {
+    color: var(--light-red);
+    font-weight: 700;
+    align-self: flex-start;
+}
+
 #signup-btn {
     padding: 0.5rem 2rem;
     background-color: var(--theme-purple-color);

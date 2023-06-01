@@ -15,7 +15,7 @@
 	<div id="order-items">
 		<h3>You're about to order these items</h3>
 		<div class="order-item" *ngFor="let item of items">
-			<div class="item-image" [ngStyle]="{'background-image': 'url( ' + item.image + ' )'}" ></div>
+			<div class="item-image" [ngStyle]="{'background-image': 'url( ' + item.imageURL + ' )'}" ></div>
 			<div class="item-name">{{item.productName}}</div>
 			<div class="item-pricing">
 				<span class="item-quantity">{{item.quantity}}</span>
