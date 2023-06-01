@@ -45,3 +45,7 @@ export interface IuserCredentials {
     email:string
     password:string
 }
+
+export interface IuserData extends InewUserData {
+    role:string
+}

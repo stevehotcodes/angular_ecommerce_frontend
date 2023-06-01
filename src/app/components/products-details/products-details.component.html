@@ -1,5 +1,5 @@
 <div>Navigation</div>
-<div id="product-details-actions">
+<div id="product-details-actions" *ngIf="product">
     <div id="product-details">
         <div id="product-image" [style.background-image]="'url(' + product.images[0].imageURL + ')'"> </div>
         <div id="product-info">

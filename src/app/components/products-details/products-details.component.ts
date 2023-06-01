@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Iproduct } from 'src/app/interfaces';
 // import { products } from 'src/dummydata';
@@ -14,13 +14,16 @@ import { ProductsService } from 'src/app/services/products.service';
 	templateUrl: './products-details.component.html',
 	styleUrls: ['./products-details.component.css']
 })
-export class ProductsDetailsComponent {
-	id: number
+export class ProductsDetailsComponent implements OnInit {
+	id!: number
 	product!: Iproduct
 
 	constructor(private productsService: ProductsService, private route:ActivatedRoute) {
+	}
+
+	ngOnInit(): void {
 		this.id = this.route.snapshot.params['id']
-		productsService.getProduct(this.id).subscribe(data => {
+		this.productsService.getProduct(this.id).subscribe(data => {
 			this.product = data
 		})
 	}

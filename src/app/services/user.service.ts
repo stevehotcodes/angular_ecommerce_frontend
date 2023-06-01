@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { InewUserData, IuserCredentials } from '../interfaces';
+import { InewUserData, IuserCredentials, IuserData } from '../interfaces';
 import { FlashMessagesService } from './flash-messages.service';
 import { AuthService } from './auth.service';
+import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 
 @Injectable({
     providedIn: 'root'
 })
 export class UserService {
-    baseUrl: string
-    constructor(private client: HttpClient, private flashSvc: FlashMessagesService, private authSvc:AuthService) {
-        this.baseUrl = 'http://localhost:4000/users'
+    private baseUrl: string
+
+    constructor(private client: HttpClient, private flashSvc: FlashMessagesService, private authSvc:AuthService, private router: Router) {
+        this.baseUrl = `${environment.apiUrl}users/`
     }
 
     signup(newUserData: InewUserData) {
@@ -20,7 +23,8 @@ export class UserService {
             this.flashSvc.pushMessage({
                 type: 'success',
                 message: res.message
-            })    
+            })
+            this.router.navigate(['/signin'])
         },
         (error: any) => {
             switch (error.status) {
@@ -41,7 +45,7 @@ export class UserService {
     }
 
     signin(userCredentials:IuserCredentials) {
-        this.client.post(this.baseUrl + '/signin', userCredentials).subscribe(
+        this.client.post(this.baseUrl + 'signin', userCredentials).subscribe(
             (res:any) => {
                 this.authSvc.signin({email:res.email, token:res.token})
                 this.flashSvc.pushMessage({
@@ -60,5 +64,9 @@ export class UserService {
 
     signout() {
 
+    }
+
+    getSignedInUser():Observable<IuserData> {
+        return this.client.get<IuserData>(this.baseUrl + 'user')
     }
 }

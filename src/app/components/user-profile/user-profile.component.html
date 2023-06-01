@@ -1,0 +1,28 @@
+<div id="profile">
+    <header>
+        <div>Customer Profile</div>
+        <div>Edit</div>
+    </header>
+    <form [formGroup]="userDataForm" (ngSubmit)="updateUser()">
+        <div id="name">
+            <div id="firstname" class="input">
+                <label class="label">First Name</label>
+                <input type="text" formControlName="firstname">
+            </div>
+    
+            <div id="lastname" class="input">
+                <label class="label">First Name</label>
+                <input type="text" formControlName="lastname">
+            </div>
+        </div>
+    
+        <div id="email" class="input">
+            <label class="label">Email</label>
+            <input type="text" formControlName="email">
+        </div>
+        <div id="password" class="input">
+            <label class="label">Password</label>
+            <input type="text" placeholder="******" formControlName="password">
+        </div>
+    </form>
+</div>

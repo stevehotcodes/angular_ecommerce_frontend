@@ -70,3 +70,21 @@ input:focus {
         order: 1
     }
 }
+
+#avatar {
+    position: relative;
+}
+
+#user-menu {
+    position: absolute;
+    display: none;
+    box-shadow: var(--default-box-shadow);
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: white;
+}
+
+#avatar:hover #user-menu, #avatar:focus-within #user-menu {
+    display: flex;
+}

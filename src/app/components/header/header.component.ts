@@ -19,11 +19,17 @@ export class HeaderComponent {
     query: new FormControl()
   })
 
-  loggedUser:IloggedUser | null
+  loggedUser!:IloggedUser | null
 
   constructor(private AuthSvc:AuthService) {
-    this.loggedUser = AuthSvc.loggedUser
+    this.AuthSvc.getLoggedUser().subscribe(user => {
+      this.loggedUser = user
+    })
   }
+
+  // getLoggedUser() {
+    
+  // }
 
   signOut() {
     this.AuthSvc.signout()

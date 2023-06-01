@@ -243,3 +243,10 @@ app-checkout{
     flex: 1;
 }
 
+app-user-profile {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
