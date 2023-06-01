@@ -173,8 +173,7 @@ app-product-card {
     box-sizing: border-box;
     gap: 0.5rem;
     cursor: pointer;
-    font-size: large;
-    font-weight: 700;
+   
 }
 
 app-product-card:hover {
@@ -188,12 +187,17 @@ app-product-card:hover {
     }
 }
 
-app-recommended-products {
+app-recommended-products,app-display-products {
     display: flex;
     flex-wrap: wrap;
     flex: 1;
     min-width: 300px;
-    gap: 1rem
+    gap: 1rem;
+}
+app-display-products{
+    justify-content: center;
+    min-width: max(280px 90svw);
+    
 }
 
 
