@@ -21,6 +21,9 @@ export class PopularProductsComponent {
       res=>{
         res.sort(() => Math.random() - 0.5)
         this.products=res.slice(0,16)
+      },
+      (error) => {
+        console.log(error);
         
       }
     )
