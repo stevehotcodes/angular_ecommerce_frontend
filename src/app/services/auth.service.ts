@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { IloggedUser } from '../interfaces';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class AuthService {
 
   constructor(private client:HttpClient) {
     this.loggedUser = this.getLoggedUser()
-    this.baseUrl = 'http://localhost:4000/users'
+    this.baseUrl = `${environment.apiUrl}users/`
   }
 
   signin(loggedUser:IloggedUser) {
@@ -42,7 +44,7 @@ export class AuthService {
         observer.complete()
       })
     }
-    return this.client.get(this.baseUrl + '/user')
+    return this.client.get(this.baseUrl + 'user')
   }
   
 }

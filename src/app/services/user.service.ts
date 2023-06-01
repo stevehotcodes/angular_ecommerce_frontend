@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { InewUserData, IuserCredentials, IuserData } from '../interfaces';
 import { FlashMessagesService } from './flash-messages.service';
 import { AuthService } from './auth.service';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ import { AuthService } from './auth.service';
 export class UserService {
     baseUrl: string
     constructor(private client: HttpClient, private flashSvc: FlashMessagesService, private authSvc:AuthService) {
-        this.baseUrl = 'http://localhost:4000/users'
+        this.baseUrl = `${environment.apiUrl}users/`
     }
 
     signup(newUserData: InewUserData) {
@@ -41,7 +42,7 @@ export class UserService {
     }
 
     signin(userCredentials:IuserCredentials) {
-        this.client.post(this.baseUrl + '/signin', userCredentials).subscribe(
+        this.client.post(this.baseUrl + 'signin', userCredentials).subscribe(
             (res:any) => {
                 this.authSvc.signin({email:res.email, token:res.token})
                 this.flashSvc.pushMessage({
@@ -63,6 +64,6 @@ export class UserService {
     }
 
     getSignedInUser():Observable<IuserData> {
-        return this.client.get<IuserData>(this.baseUrl + '/user')
+        return this.client.get<IuserData>(this.baseUrl + 'user')
     }
 }
