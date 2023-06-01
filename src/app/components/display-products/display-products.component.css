@@ -1,6 +1,7 @@
 app-product-card {
-    height: 180px;
-    width: 150px;
+    height: 300px;
+    width: min(250px, 40svw);
+    min-width: 150px;
 }
 
 #heading {
