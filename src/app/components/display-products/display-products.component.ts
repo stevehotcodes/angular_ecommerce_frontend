@@ -4,28 +4,25 @@ import { ProductsService } from 'src/app/services/products.service';
 import { Iproduct } from 'src/app/interfaces';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { RouterModule } from '@angular/router';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-display-products',
   standalone: true,
-  imports: [CommonModule,ProductCardComponent,RouterModule],
+  imports: [CommonModule, ProductCardComponent, RouterModule],
   templateUrl: './display-products.component.html',
-  styleUrls: ['./display-products.component.css']
+  styleUrls: ['./display-products.component.css'],
 })
 export class DisplayProductsComponent {
-    products:Iproduct[]=[]
+  products: Iproduct[] = []
 
-    constructor (private productService :ProductsService){ 
-    
-      this.productService.getAllProducts().subscribe(
-        res=>{
-          console.log(res)
-          this.products = res
-        }
-       
-        )
-    }
+  constructor(private productService: ProductsService) {
+    this.productService.getAllProducts().subscribe(
+      (res) => {
+        this.products = res
+      },
+      (error) => {}
+    )
   }
-    
-   
-
+}

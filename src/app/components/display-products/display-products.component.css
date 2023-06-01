@@ -7,4 +7,6 @@ app-product-card {
     width: 100%;
     font-size: xx-large;
     font-weight: 500;
+    display: flex;
+    justify-content: center;
 }
