@@ -16,16 +16,8 @@ export class FlashMessagesService {
 
   pushMessage (message:IflashMessage) {
     this.messages.push(message)
-    // const index = this.messages.length - 1
-    // return new Observable((observer) => {
       setTimeout(() => {
-        // this.messages.splice(index,1)
-        // console.log(index);
         this.messages.shift()
-        // observer.next(this.messages)
-        // observer.complete()
       }, 7000);
-    // })
-    
   }
 }
