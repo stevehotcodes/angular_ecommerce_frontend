@@ -1,4 +1,4 @@
-<div  id="product-image" [style.background-image]="'url(' + product.images[0].imageURL + ')'">
+<div  class="product-image" [style.background-image]="'url(' + product.images[0].imageURL + ')'">
 </div>
 
 <div>{{product.productName.length > 50 ? (product.productName | slice:0:40) + '...' : product.productName}}</div>

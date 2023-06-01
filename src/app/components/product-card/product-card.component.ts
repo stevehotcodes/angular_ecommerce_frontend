@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Iproduct } from 'src/app/interfaces';
 import { RouterModule } from '@angular/router';
@@ -12,11 +12,20 @@ import { FlashMessagesService } from 'src/app/services/flash-messages.service';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.css']
 })
-export class ProductCardComponent {
+export class ProductCardComponent implements OnInit {
   @Input() product!:Iproduct
+  noImage:string
 
   constructor(private cartService:CartService, private flash:FlashMessagesService) {
-      
+      this.noImage = '../../../assets/Product-inside.png'
+  }
+
+  ngOnInit(): void {
+    const img = new Image();
+    img.src = this.product.images[0].imageURL;
+    img.addEventListener('error', () => {
+      this.product.images[0].imageURL = this.noImage
+    });
   }
 
   addToCart(event:MouseEvent | KeyboardEvent){
