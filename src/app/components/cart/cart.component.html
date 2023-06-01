@@ -1,4 +1,4 @@
-<div id="selected-products">
+<div id="selected-products" *ngIf="cartItems.length">
     <div class="cart-item-div" *ngFor="let cartItem of cartItems">
         <div id="cart-item">
             <div id="selected-product-image" [ngStyle]="{'background-image': 'url( ' + cartItem.imageURL + ' )'}"></div>
@@ -20,8 +20,12 @@
     </div>
 </div>
 
-<div id=cart-summary>
+<div id=cart-summary *ngIf="cartItems.length">
     <div id="cart-summary-title">Cart Summary</div>
     <div id="total">Total: {{cartTotal | currency : 'Ksh ' : 'symbol' : '1.2-2' }} </div>
     <button id="checkout-btn" routerLink="/checkout">Checkout</button>
+</div>
+
+<div *ngIf="!cartItems.length" id="empty-cart">
+    <img src="../../../assets/empty-cart.png" alt="empty cart">
 </div>

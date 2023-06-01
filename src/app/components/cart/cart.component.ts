@@ -18,7 +18,7 @@ export class CartComponent {
     cartTotal!:number 
 
     constructor(private cartSvc:CartService) {
-        cartSvc.getCart().subscribe(
+        this.cartSvc.getCart().subscribe(
           (res) => {
            this.cartItems = res
            this.cartTotal = this.cartItems.reduce((accum:number,curr:any)=>{
