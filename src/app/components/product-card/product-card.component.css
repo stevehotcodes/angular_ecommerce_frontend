@@ -17,3 +17,7 @@
 .add-to-cart:hover {
     background-color: var(--theme-lighter-purple);
 }
+
+.product-price{
+    font-size:1rem;
+}

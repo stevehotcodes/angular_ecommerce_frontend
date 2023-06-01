@@ -1,11 +1,11 @@
 <div>Navigation</div>
 <div id="product-details-actions">
     <div id="product-details">
-        <div id="product-image" > </div>
+        <div id="product-image" [style.background-image]="'url(' + product.images[0].imageURL + ')'"> </div>
         <div id="product-info">
-            <div id="product-name">{{products[0].productName}}</div>
-            <div id="product-price" >{{products[0].price | currency }}</div>
-            <div id="product-description">{{products[0].productDescription}}</div>
+            <div id="product-name">{{product.productName}}</div>
+            <div id="product-price" >{{product.price | currency }}</div>
+            <div id="product-description">{{product.productDescription}}</div>
         </div>
     </div>
 
