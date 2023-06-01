@@ -5,6 +5,7 @@ import { IcartItem } from 'src/app/interfaces';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { CartService } from 'src/app/services/cart.service';
+import { FlashMessagesService } from 'src/app/services/flash-messages.service';
 
 @Component({
   selector: 'app-cart',
@@ -14,21 +15,77 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-    cartItems:any[] = []
-    cartTotal!:number 
+    constructor(public cartSvc:CartService, private flash:FlashMessagesService) {
+    }
 
-    constructor(private cartSvc:CartService) {
-        this.cartSvc.getCart().subscribe(
-          (res) => {
-           this.cartItems = res
-           this.cartTotal = this.cartItems.reduce((accum:number,curr:any)=>{
-            return accum + curr.price * curr.quantity
+    updateCartItem(action:'remove' | 'decrement' | 'increment', item:IcartItem) {
+        switch (action) {
+            case 'remove':
+                this.cartSvc.removeItem(item.id).subscribe(
+                    (res)=>{
+                      this.cartSvc.updateCartItems()
+                    },
+                    (error)=>{
+                        this.flash.pushMessage({
+                            type:"error",
+                            message: error.message || "Unknown error occured"
+                        }
+                           
+                        )
+                    }
+                )
+                break
+            case 'decrement':
+                this.cartSvc.updateItem(item.id, item.quantity - 1).subscribe(
+                    (res)=>{this.cartSvc.updateCartItems()},
+                    (error)=>{
+                        this.flash.pushMessage({
+                            type:"error",
+                            message: error.message || 'Unknown Error occured'
+                        })
+                    }
+                )
+                break
 
-           },0)
-          },
-          (error) => {
-            
-          }
+            case 'increment':
+                this.cartSvc.updateItem(item.id, item.quantity + 1).subscribe(
+                    (res) => {this.cartSvc.updateCartItems()},
+                    (error) => {
+                        this.flash.pushMessage(
+                            {
+                                type: 'error',
+                                message: error.message || 'Unknown Error occured'
+                            }
+                        )
+                    }
+                )
+                break
+
+            default:
+                break
+        }
+        
+    }
+
+    clearCart() {
+        this.cartSvc.clearCart().subscribe(
+            (res) => {
+                this.cartSvc.updateCartItems()
+                this.flash.pushMessage(
+                    {
+                        type: 'success',
+                        message: res.message
+                    }
+                )
+            },
+            (error) => {
+                this.flash.pushMessage(
+                    {
+                        type: 'error',
+                        message: error.message || 'Unknown Error occured'
+                    }
+                )
+            }
         )
     }
  
