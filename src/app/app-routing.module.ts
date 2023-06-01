@@ -8,6 +8,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { DisplayProductsComponent } from './components/display-products/display-products.component';
 
 
 const routes: Routes = [
@@ -18,8 +19,8 @@ const routes: Routes = [
   {path:"cart", component:CartComponent},
   {path:'checkout', component:CheckoutComponent},
   {path: 'user', component:UserProfileComponent},
+  {path:'all-products', component:DisplayProductsComponent},
   {path: '**', component:NotFoundComponent}
-  
 ];
 
 @NgModule({
