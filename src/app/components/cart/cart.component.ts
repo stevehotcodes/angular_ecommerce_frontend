@@ -4,6 +4,7 @@ import { IcartItem } from 'src/app/interfaces';
 // import { cartItems } from 'src/dummydata';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -13,9 +14,22 @@ import { IonicModule } from '@ionic/angular';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
- cartItems:IcartItem[] = []
- cartTotal:number = 0
-//  cartTotal:number = cartItems.reduce((accum:number, curr:ICartItem) => {
-//   return accum + (curr.price * curr.quantity)
-//  }, 0)
+    cartItems:any[] = []
+    cartTotal!:number 
+
+    constructor(private cartSvc:CartService) {
+        cartSvc.getCart().subscribe(
+          (res) => {
+           this.cartItems = res
+           this.cartTotal = this.cartItems.reduce((accum:number,curr:any)=>{
+            return accum + curr.price * curr.quantity
+
+           },0)
+          },
+          (error) => {
+            
+          }
+        )
+    }
+ 
 }

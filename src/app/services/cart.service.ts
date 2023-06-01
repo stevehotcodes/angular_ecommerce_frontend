@@ -11,11 +11,11 @@ export class CartService {
     baseUrl:string
 
     constructor(private client:HttpClient) {
-        this.baseUrl = "http://192.168.77.34:4000/cart"
+        this.baseUrl = "http://localhost:4000/cart"
     }
 
-    addItemtoCart(id:string):Observable<{message:string}>{
-        return this.client.post<{message:string}>(this.baseUrl, {id})
+    addItemtoCart(productID:string):Observable<{message:string}>{
+        return this.client.post<{message:string}>(this.baseUrl, {productID})
     }
     
     getCart():Observable<any>{
