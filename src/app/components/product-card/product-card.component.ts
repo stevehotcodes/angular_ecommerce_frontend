@@ -29,6 +29,7 @@ export class ProductCardComponent {
             message:res.message
           }
         )
+        this.cartService.updateCartItems()
       },
       (err)=>{
         this.flash.pushMessage(

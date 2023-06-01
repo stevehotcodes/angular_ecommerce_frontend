@@ -9,10 +9,10 @@ export interface Iproduct {
 export interface IcartItem {
     id:string
     productName:string
-    productDescription:string
     price:number
     quantity:number
-    image:string
+    imageURL:string
+    userID:string
 }
 
 

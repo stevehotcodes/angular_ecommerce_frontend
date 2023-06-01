@@ -1,11 +1,10 @@
 <div id="selected-products">
     <div class="cart-item-div" *ngFor="let cartItem of cartItems">
         <div id="cart-item">
-            <div id="selected-product-image" [ngStyle]="{'background-image': 'url( ' + cartItem.image + ' )'}"></div>
+            <div id="selected-product-image" [ngStyle]="{'background-image': 'url( ' + cartItem.imageURL + ' )'}"></div>
             
             <div class="cart-item-description">
                 <div id="selected-product-name">{{cartItem.productName}}</div>
-                <div id="selected-product-detail">{{cartItem.productDescription}}</div>
                 <div id="selected-product-price">Price: {{cartItem.price | currency : 'Ksh ' : 'symbol' : '1.2-2' }}</div>
             </div>
         </div>

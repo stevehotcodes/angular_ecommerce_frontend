@@ -5,6 +5,7 @@ import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { IloggedUser } from 'src/app/interfaces';
+import { CartService } from 'src/app/services/cart.service';
 
 
 @Component({
@@ -20,17 +21,14 @@ export class HeaderComponent {
   })
 
   loggedUser!:IloggedUser | null
+  cartCounter!:number
 
-  constructor(private AuthSvc:AuthService) {
+  constructor(private AuthSvc:AuthService, public cart:CartService) {
     this.AuthSvc.getLoggedUser().subscribe(user => {
       this.loggedUser = user
-    })
+    })   
   }
-
-  // getLoggedUser() {
-    
-  // }
-
+  
   signOut() {
     this.AuthSvc.signout()
   }

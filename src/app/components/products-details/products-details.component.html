@@ -4,7 +4,7 @@
         <div id="product-image" [style.background-image]="'url(' + product.images[0].imageURL + ')'"> </div>
         <div id="product-info">
             <div id="product-name">{{product.productName}}</div>
-            <div id="product-price" >{{product.price | currency }}</div>
+            <div id="product-price" >{{product.price | currency : "Ksh ": 'symbol' : "1.2-2"}}</div>
             <div id="product-description">{{product.productDescription}}</div>
         </div>
     </div>
@@ -15,7 +15,7 @@
             <div >5</div>
             <ion-icon name="add-circle-outline" size="large"></ion-icon>
         </div>
-       <button id="add-to-cart">Add to Cart</button>
+       <button id="add-to-cart" (click)="addToCart()">Add to Cart</button>
         
     </div>
 </div>
