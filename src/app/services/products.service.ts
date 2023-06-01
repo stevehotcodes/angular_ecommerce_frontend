@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProductsService {
-  baseUrl:string
+  private baseUrl:string
   
   constructor(private client:HttpClient) { 
     this.baseUrl = `${environment.apiUrl}products/`

@@ -9,42 +9,43 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  loggedUser: IloggedUser | null
-  baseUrl:string
+  private baseUrl:string
 
   constructor(private client:HttpClient) {
-    this.loggedUser = this.getLoggedUser()
     this.baseUrl = `${environment.apiUrl}users/`
   }
 
   signin(loggedUser:IloggedUser) {
     localStorage.setItem('grabiaLoggedUserEmail', loggedUser.email)
     localStorage.setItem('grabiaLoggedUserToken', loggedUser.token)
-    this.loggedUser = this.getLoggedUser()
+    window.location.reload()
   }
 
-  getLoggedUser() {
+  getLoggedUser():Observable<IloggedUser | null> {
     const email = localStorage.getItem('grabiaLoggedUserEmail')
     const token = localStorage.getItem('grabiaLoggedUserToken')
-    this.loggedUser = email && token ? {email, token} : null
+    const loggedUser = email && token ? {email, token} : null
 
-    return this.loggedUser
+    return new Observable(observer =>  {
+      observer.next(loggedUser)
+    })
   }
 
   signout() {
     localStorage.removeItem('grabiaLoggedUserEmail')
     localStorage.removeItem('grabiaLoggedUserToken')
-    this.loggedUser = this.getLoggedUser()
+    window.location.reload()
   }
 
-  isAdmin():Observable<any> {
-    if (!this.loggedUser) {
-      return new Observable(observer => {
-        observer.next(false)
-        observer.complete()
-      })
-    }
-    return this.client.get(this.baseUrl + 'user')
-  }
+  // isAdmin():Observable<any> {
+  //   const token = localStorage.getItem('grabiaLoggedUserToken')
+  //   if (!token) {
+  //     return new Observable(observer => {
+  //       observer.next(false)
+  //       // observer.complete()
+  //     })
+  //   }
+  //   return this.client.get(this.baseUrl + 'user')
+  // }
   
 }

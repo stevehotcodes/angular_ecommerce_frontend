@@ -5,14 +5,16 @@ import { InewUserData, IuserCredentials, IuserData } from '../interfaces';
 import { FlashMessagesService } from './flash-messages.service';
 import { AuthService } from './auth.service';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 
 @Injectable({
     providedIn: 'root'
 })
 export class UserService {
-    baseUrl: string
-    constructor(private client: HttpClient, private flashSvc: FlashMessagesService, private authSvc:AuthService) {
+    private baseUrl: string
+
+    constructor(private client: HttpClient, private flashSvc: FlashMessagesService, private authSvc:AuthService, private router: Router) {
         this.baseUrl = `${environment.apiUrl}users/`
     }
 
@@ -21,7 +23,8 @@ export class UserService {
             this.flashSvc.pushMessage({
                 type: 'success',
                 message: res.message
-            })    
+            })
+            this.router.navigate(['/signin'])
         },
         (error: any) => {
             switch (error.status) {

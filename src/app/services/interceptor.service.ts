@@ -7,13 +7,13 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class InterceptorService implements HttpInterceptor {
-  token:string = ''
+  private token:string = ''
 
   constructor(private authSvc:AuthService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler):Observable<HttpEvent<any>> {
-    const loggedUser = this.authSvc.getLoggedUser()
-    this.token =  loggedUser ? loggedUser.token : '' 
+    const token = localStorage.getItem('grabiaLoggedUserToken')
+    this.token =  token ? token : '' 
 
     let modifiedRequest = req.clone({
       headers: new HttpHeaders().append('token', this.token)
