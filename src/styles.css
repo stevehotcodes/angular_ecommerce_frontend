@@ -126,6 +126,10 @@ app-popular-products {
     justify-content: center;
 }
 
+app-popular-products, app-recommended-products {
+    padding-bottom: 1rem;
+}
+
 #flash-messages {
     position: fixed;
     z-index: 999;
