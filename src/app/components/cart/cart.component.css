@@ -29,6 +29,10 @@
     padding: 0.5rem;
  }
 
+ .cart-item-div:hover {
+   background-color: var(--secondary-bg-color);
+ }
+
  #cart-item, #cart-actions,#quantity,#trash,#cart-summary{
     display: flex;
  }
@@ -110,4 +114,12 @@
 #empty-cart>img {
    width: 100%;
    height: auto;
+}
+
+ion-icon[name=remove-circle-outline]:hover {
+   color: var(--light-red);
+}
+
+ion-icon[name=add-circle-outline]:hover {
+   color: var(--light-green);
 }

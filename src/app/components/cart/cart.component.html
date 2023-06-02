@@ -1,10 +1,10 @@
 <div id="selected-products" *ngIf="cartSvc.cartItems.length">
     <div class="cart-item-div" *ngFor="let cartItem of cartSvc.cartItems">
         <div id="cart-item">
-            <div id="selected-product-image" [ngStyle]="{'background-image': 'url( ' + cartItem.imageURL + ' )'}"></div>
+            <div id="selected-product-image" class="cursor-pointer" [routerLink]="'/products/' + cartItem.productID" [ngStyle]="{'background-image': 'url( ' + cartItem.imageURL + ' )'}"></div>
             
-            <div class="cart-item-description">
-                <div id="selected-product-name">{{cartItem.productName}}</div>
+            <div class="cart-item-description" class="cursor-pointer" [routerLink]="'/products/' + cartItem.productID">
+                <div id="selected-product-name" >{{cartItem.productName}}</div>
                 <div id="selected-product-price">Price: {{cartItem.price | currency : 'Ksh ' : 'symbol' : '1.2-2' }}</div>
             </div>
         </div>

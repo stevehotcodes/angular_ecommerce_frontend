@@ -246,7 +246,7 @@ app-checkout{
     flex: 1;
 }
 
-app-user-profile {
+app-user-profile, app-orders, app-order {
     display: flex;
     flex: 1;
     flex-direction: column;

@@ -1,0 +1,23 @@
+<h1>Order</h1>
+
+<div id="order">
+    <div *ngIf="order" id="heading">
+        <div id="order-id">#{{order.id}}</div>
+        <div>
+            <div>{{order.orderDate}}</div>
+            <div>{{order.status}}</div>
+        </div>
+        <div>{{orderTotal | currency : 'Ksh ' : 'symbol' : '1.2-2'}}</div>
+    </div>
+    <div *ngIf="order" id="order-items">
+        <div *ngFor="let item of order.items" class="order-item" [routerLink]="['/products', item.productID]">
+            <div class="order-item-details">
+                <div class="item-name">{{item.productName}}</div>
+                <div class="item-quantity"> {{item.quantity}} item(s) at </div>
+                <div class="item-price"> {{item.price * item.quantity | currency : 'Ksh ' : 'symbol' : '1.2-2'}}</div>
+            </div>
+            <div  class="item-image" [style.background-image]="'url(' + item.imageURL + ')'">
+            </div>
+        </div>
+    </div>
+</div>
