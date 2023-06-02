@@ -1,4 +1,5 @@
 <div id="selected-products" *ngIf="cartSvc.cartItems.length">
+    <div><div (click)="clearCart()" id="clear-cart-btn" class="cursor-pointer hover-underline">clear cart</div></div>
     <div class="cart-item-div" *ngFor="let cartItem of cartSvc.cartItems">
         <div id="cart-item">
             <div id="selected-product-image" class="cursor-pointer" [routerLink]="'/products/' + cartItem.productID" [ngStyle]="{'background-image': 'url( ' + cartItem.imageURL + ' )'}"></div>
