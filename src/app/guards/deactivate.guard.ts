@@ -23,8 +23,8 @@ export class DeactivateGuard implements CanActivate {
 				}
 			}),
 			catchError(error => {
-				this.router.navigate([''])
-				return of(false)
+				// this.router.navigate([''])
+				return of(true)
 			})
 		)
 	}
