@@ -13,6 +13,7 @@ export interface IcartItem {
     quantity:number
     imageURL:string
     userID:string
+    productID:string
 }
 
 
@@ -49,3 +50,35 @@ export interface IuserCredentials {
 export interface IuserData extends InewUserData {
     role:string
 }
+
+export interface IorderSuccessResponse {
+    message:string
+    orderTotal:number
+    itemsCount:number
+    orderID:string
+}
+
+export interface Iorder {
+    id:string
+    orderStatus:string
+    orderDate:string
+    userID:string
+}
+
+export interface IorderWithInfo {
+    id:string
+    userID:string
+    status: Tstatus
+    orderDate:string
+    items:IorderItemInfo[]
+}
+
+export interface IorderItemInfo {
+    productID:string
+    quantity:number
+    productName:string
+    price:number
+    imageURL:string
+}
+
+export type Tstatus = 'processing' | 'shipping' | 'shipped' | 'canceled'

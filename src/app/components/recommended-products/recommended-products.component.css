@@ -1,10 +1,22 @@
 app-product-card {
     height: 180px;
     width: 150px;
+    font-size: 1rem;
+}
+
+app-product-price>.product-price {
+    font-size: xx-small;
 }
 
 #heading {
     width: 100%;
     font-size: xx-large;
     font-weight: 500;
+    background-color: var(--theme-lighter-purple);
+    color: white
+}
+
+:host {
+    border: 1px solid var(--theme-purple-color);
+    justify-content: center;
 }

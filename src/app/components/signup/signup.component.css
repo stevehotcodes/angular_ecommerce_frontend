@@ -45,3 +45,8 @@ button{
 button:hover {
     background-color: var(--secondary-blue-color)
 }
+
+
+input.ng-dirty.ng-invalid {
+    border: 1px solid var(--light-red)
+  }

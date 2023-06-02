@@ -1,31 +1,58 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, ReactiveFormsModule,FormControl } from '@angular/forms';
-import { IcartItem, Iproduct } from 'src/app/interfaces';
+import { FormGroup, ReactiveFormsModule, FormControl } from '@angular/forms';
+import { IcartItem, IorderSuccessResponse, IuserData } from 'src/app/interfaces';
+import { CartService } from 'src/app/services/cart.service';
+import { UserService } from 'src/app/services/user.service';
+import { OrderService } from 'src/app/services/order.service';
+import { FlashMessagesService } from 'src/app/services/flash-messages.service';
+import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-checkout',
-  standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
-  templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.css']
+    selector: 'app-checkout',
+    standalone: true,
+    imports: [CommonModule, ReactiveFormsModule],
+    templateUrl: './checkout.component.html',
+    styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent implements OnInit {
- items:IcartItem[] = []
- total:number = this.items.reduce((accum:number, curr:IcartItem) => {
-  return accum + (curr.price * curr.quantity)
- }, 0)
+export class CheckoutComponent implements OnChanges {
+    items!: IcartItem[]
+    total!: number
+    userInfo!:IuserData
 
- checkoutForm!:FormGroup
+    constructor(public cartSvc: CartService, private userSvc:UserService, private orderSvc:OrderService, private flash:FlashMessagesService, private router:Router) {
+        this.items = cartSvc.cartItems
+        this.total = cartSvc.cartTotal
+        this.userSvc.getSignedInUser().subscribe(data => {
+            this.userInfo = data
+        },
+        error => {
+        }
+        )
+    }
+    
+    ngOnChanges(changes: SimpleChanges) {
+        
+      }
 
- constructor(){}
+    makeOrder() {
+        this.orderSvc.makeOrder().subscribe(
+            (res:IorderSuccessResponse) => {
+                this.flash.pushMessage({
+                    type: 'success',
+                    message: res.message
+                })
+                this.cartSvc.updateCartItems()
+                this.router.navigate(['/orders'])
+            },
+            (error) => {
+                this.flash.pushMessage({
+                    type: 'error',
+                    message: error.message || 'Unknown Error occured'
+                })
+            }
+        )
+    }
 
- ngOnInit(): void {
-   this.checkoutForm=new FormGroup({
-      customerName: new FormControl(''),
-      town:new FormControl(''),
-      email:new FormControl('')
-   })
- }
 }

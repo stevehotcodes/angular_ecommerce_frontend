@@ -120,11 +120,14 @@ app-carousel {
 
 app-popular-products {
     flex: 1;
-    padding: 0.5rem;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
+}
+
+app-popular-products, app-recommended-products {
+    padding-bottom: 1rem;
 }
 
 #flash-messages {
@@ -243,7 +246,7 @@ app-checkout{
     flex: 1;
 }
 
-app-user-profile {
+app-user-profile, app-orders, app-order {
     display: flex;
     flex: 1;
     flex-direction: column;
