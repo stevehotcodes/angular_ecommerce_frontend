@@ -6,6 +6,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { UserService } from 'src/app/services/user.service';
 import { OrderService } from 'src/app/services/order.service';
 import { FlashMessagesService } from 'src/app/services/flash-messages.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class CheckoutComponent implements OnChanges {
     total!: number
     userInfo!:IuserData
 
-    constructor(public cartSvc: CartService, private userSvc:UserService, private orderSvc:OrderService, private flash:FlashMessagesService) {
+    constructor(public cartSvc: CartService, private userSvc:UserService, private orderSvc:OrderService, private flash:FlashMessagesService, private router:Router) {
         this.items = cartSvc.cartItems
         this.total = cartSvc.cartTotal
         this.userSvc.getSignedInUser().subscribe(data => {
@@ -43,6 +44,7 @@ export class CheckoutComponent implements OnChanges {
                     message: res.message
                 })
                 this.cartSvc.updateCartItems()
+                this.router.navigate(['/orders'])
             },
             (error) => {
                 this.flash.pushMessage({
