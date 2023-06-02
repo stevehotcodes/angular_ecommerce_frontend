@@ -40,7 +40,10 @@ export class SignupComponent implements OnInit {
       this.userSvc.signup(newUserData)
     }
     else {
-      console.log("invalid")
+      this.flashSvc.pushMessage({
+        type: 'error',
+        message: 'Invalid form'
+      })
     }
   }
 }
