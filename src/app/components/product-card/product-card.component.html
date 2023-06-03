@@ -1,0 +1,10 @@
+<div  class="product-image" [style.background-image]="'url(' + product.images[0].imageURL + ')'">
+</div>
+
+<div class="product-name">{{product.productName.length > 50 ? (product.productName | slice:0:40) + '...' : product.productName}}</div>
+
+<div class="price-and-add">
+    <div class="product-price">{{ product.price | currency : 'Ksh ' : 'symbol' : '1.2-2' }}</div>
+
+    <button class="add-to-cart cursor-pointer" (click)="addToCart($event)">Add to Cart</button>
+</div>

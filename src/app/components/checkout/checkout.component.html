@@ -1,0 +1,28 @@
+<h1 id="header">Checkout</h1>
+<div id="checkout-container">
+	<div id="details">
+		<h3>Total: {{cartSvc.cartTotal | currency : 'Ksh ' : 'symbol' : '1.2-2' }}</h3>
+
+		<div id="billing-details" *ngIf="userInfo">
+			<h3>Billing Details</h3>
+			<div>Name: {{userInfo.firstname + ' ' + userInfo.lastname}}</div>
+			<div>Address: {{userInfo.email}}</div>
+			<div>Country: Kenya</div>
+		</div>
+		<button id="order-btn" (click)="makeOrder()">Make Order</button>
+	</div>
+
+	<div id="order-items">
+		<h3>You're about to order these items</h3>
+		<div class="order-item" *ngFor="let item of cartSvc.cartItems">
+			<div class="item-image" [ngStyle]="{'background-image': 'url( ' + item.imageURL + ' )'}" ></div>
+			<div class="item-name">{{item.productName}}</div>
+			<div class="item-pricing">
+				<span class="item-quantity">{{item.quantity}}</span>
+				 x 
+				 <span class="item-price">{{item.price | currency : 'Ksh ' : 'symbol' : '1.2-2'}}</span>
+			</div>
+		</div>
+	</div>
+
+</div>

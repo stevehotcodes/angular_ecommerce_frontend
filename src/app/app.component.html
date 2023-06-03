@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div id="flash-messages" *ngIf="messages">
+    <app-flash-message class="{{message.type}}" *ngFor="let message of messages" [message]="message"></app-flash-message>
+</div>
+<!-- <button (click)="this.flashMessagesSvc.pushMessage({
+    type: 'success',
+    message: 'Success message'
+  })">SUCCESS</button>
+<button (click)="this.flashMessagesSvc.pushMessage({
+    type: 'error',
+    message: 'An error occured'
+  })">ERROR</button>
+<button (click)="this.flashMessagesSvc.pushMessage({
+    type: 'info',
+    message: 'For your info, this happened.'
+  })" >INFO</button> -->
+<router-outlet></router-outlet>
+<app-footer></app-footer>

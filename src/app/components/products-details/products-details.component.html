@@ -1,0 +1,27 @@
+<div>Navigation</div>
+<div id="product-details-actions" *ngIf="product">
+    <div id="product-details">
+        <div id="product-image" [style.background-image]="'url(' + product.images[0].imageURL + ')'"> </div>
+        <div id="product-info">
+            <div id="product-name">{{product.productName}}</div>
+            <div id="product-price" >{{product.price | currency : "Ksh ": 'symbol' : "1.2-2"}}</div>
+            <div id="product-description">{{product.productDescription}}</div>
+        </div>
+    </div>
+
+    <div id="product-actions">
+        <!-- <div id="quantity">
+            <ion-icon name="remove-circle-outline" size="large"></ion-icon>
+            <div >5</div>
+            <ion-icon name="add-circle-outline" size="large"></ion-icon>
+        </div> -->
+       <button id="add-to-cart" (click)="addToCart()">Add to Cart</button>
+        
+    </div>
+</div>
+
+<div id="product-description-detailed">
+    <p>Description</p>
+    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro ducimus et quo ab! Ducimus quibusdam fugiat iure dicta tempore quas quisquam voluptate suscipit beatae. Dolore quae ullam alias quis totam?</div>
+</div>
+

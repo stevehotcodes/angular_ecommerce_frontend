@@ -1,0 +1,25 @@
+/* #cat-carousel {
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+#main-products {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* min-width: 300px; */
+}
+
+#main-products>div:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (max-width:900px) {
+    app-categories {
+        width: 32px;
+    }
+}

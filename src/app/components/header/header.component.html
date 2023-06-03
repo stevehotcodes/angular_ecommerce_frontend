@@ -1,0 +1,27 @@
+<div id="logo" routerLink="">Grabia</div>
+<form [formGroup]="searchForm" id="search-form">
+    <input type="text" id="query" name="query" required placeholder="Search a product...">
+    <ion-icon name="search-outline" size="large" type="submit"></ion-icon>
+</form>
+
+<div id="header-actions">
+    <div id="cart-icon" class="cursor-pointer">
+        <ion-icon name="cart-outline" size="large" routerLink="cart"></ion-icon>
+        <div id="cart-counter">{{this.cart.cartItems.length}}</div>
+    </div>
+
+    <div *ngIf="!loggedUser" class="user-actions">
+        <div id="signin-btn" class="cursor-pointer hover-underline" routerLink="signin"><a>Sign in</a></div>
+        <div id="signup-btn" class="cursor-pointer" routerLink="signup" ><a >Sign up</a></div>
+    </div>
+    <div *ngIf="loggedUser" class="user-actions">
+        <div id="avatar" class="cursor-pointer">
+            <ion-icon name="person-circle-outline" size="large"></ion-icon>
+            <div id="user-menu">
+                <div class="cursor-pointer hover-underline" routerLink="/orders">Orders</div>
+                <div class="cursor-pointer hover-underline" routerLink="/user">Profile</div>
+            </div>
+        </div>
+        <div id="signout-btn" class="cursor-pointer hover-underline" (click)="signOut()"><a>Sign out</a></div>
+    </div>
+</div>

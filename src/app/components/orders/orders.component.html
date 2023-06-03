@@ -1,0 +1,14 @@
+<div class="table">
+    <div id="heading">Orders</div>
+    <div class="row table-head">
+      <div class="cell">Order #</div>
+      <div class="cell">Date of Order</div>
+      <div class="cell">Order Status</div>
+    </div>
+    <div class="row order" *ngFor="let order of orders" [routerLink]="['/order', order.id]">
+      <div class="cell">{{order.id}}</div>
+      <div class="cell">{{order.orderDate}}</div>
+      <div class="cell">{{order.orderStatus}}</div>
+    </div>
+</div>
+  

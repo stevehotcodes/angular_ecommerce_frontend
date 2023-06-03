@@ -1,0 +1,32 @@
+<div id="selected-products" *ngIf="cartSvc.cartItems.length">
+    <div><div (click)="clearCart()" id="clear-cart-btn" class="cursor-pointer hover-underline">clear cart</div></div>
+    <div class="cart-item-div" *ngFor="let cartItem of cartSvc.cartItems">
+        <div id="cart-item">
+            <div id="selected-product-image" class="cursor-pointer" [routerLink]="'/products/' + cartItem.productID" [ngStyle]="{'background-image': 'url( ' + cartItem.imageURL + ' )'}"></div>
+            
+            <div class="cart-item-description" class="cursor-pointer" [routerLink]="'/products/' + cartItem.productID">
+                <div id="selected-product-name" >{{cartItem.productName}}</div>
+                <div id="selected-product-price">Price: {{cartItem.price | currency : 'Ksh ' : 'symbol' : '1.2-2' }}</div>
+            </div>
+        </div>
+
+        <div id="cart-actions">
+            <div id="quantity">
+                <ion-icon name="remove-circle-outline" size="large" class="action-btn" (click)="updateCartItem('decrement',cartItem)"></ion-icon>
+                <div>{{cartItem.quantity}}</div>
+                <ion-icon name="add-circle-outline" size="large" class="action-btn" (click)="updateCartItem('increment',cartItem)"></ion-icon>
+            </div>
+            <div id="trash" class="action-btn" (click)="updateCartItem('remove', cartItem)"><ion-icon name="trash" size="large"></ion-icon>Remove</div>
+        </div>
+    </div>
+</div>
+
+<div id=cart-summary *ngIf="cartSvc.cartItems.length">
+    <div id="cart-summary-title">Cart Summary</div>
+    <div id="total">Total: {{cartSvc.cartTotal | currency : 'Ksh ' : 'symbol' : '1.2-2' }} </div>
+    <button id="checkout-btn" routerLink="/checkout">Checkout</button>
+</div>
+
+<div *ngIf="!cartSvc.cartItems.length" id="empty-cart">
+    <img src="../../../assets/empty-cart.png" alt="empty cart">
+</div>

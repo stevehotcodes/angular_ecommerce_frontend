@@ -1,0 +1,11 @@
+<p id="heading">All Products</p>
+
+<app-product-card
+  *ngFor="let product of products"
+  [product]="product"
+  [routerLink]="'/products/' + product.id"
+></app-product-card>
+
+<!-- <div>
+  <div *ngFor="let page of pages.keys()">page</div>
+</div> -->
