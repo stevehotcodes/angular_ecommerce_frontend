@@ -3,7 +3,7 @@
     max-height: 100%;
     object-fit: contain;
     scroll-snap-align: start;
-    flex:1 0 100%
+    flex:1 0 100%;
 }
 
 ion-icon {
@@ -18,13 +18,17 @@ ion-icon[name="chevron-forward-outline"] {
     right: 2rem;
 }
 
-#slider{
+.slider{
     aspect-ratio: 16/9;
     overflow-x: hidden;
     display:flex; 
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     flex:1 0 100%
+}
+.sliders{
+    overflow-x: hidden;
+    display:flex;
 }
 
 #slider-nav{
@@ -41,13 +45,14 @@ ion-icon[name="chevron-forward-outline"] {
 #catchPhrase{
     position:absolute;
     z-index: 1;
-    color:#f5f5f5;
+    color:#fff;
     top:37%;
     left:50%;
-    font-size:1.5em;
+    font-size:2.5em;
     transform: translateX(-50%);
     text-shadow: #f5f5f5;
-    bottom:50%
+    bottom:50%;
+    
  
 
 }
@@ -59,6 +64,7 @@ ion-icon[name="chevron-forward-outline"] {
     opacity:.75;
     transition: opacity ease 500ms;
     border-radius: 50%;
+   
 
     
 }
@@ -66,3 +72,4 @@ ion-icon[name="chevron-forward-outline"] {
 #slider-nav a :hover{
     opacity: 1;
 }
+
