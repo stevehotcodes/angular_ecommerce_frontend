@@ -3,7 +3,7 @@
   
     <div class="form-input">
         <label>Email</label>
-        <input type="email" formControlName="email" placeholder="email@example.com">
+        <input type="email" formControlName="email" placeholder="email@example.com" data-cy="signin-email-input">
         <div *ngIf="signinForm.get('email')!.errors && signinForm.get('email')!.touched">
             <div *ngIf="signinForm.get('email')?.hasError('required')" [style.color]="textColor" [style.font-size.rem]="errorMsgFontSize">email is required</div>
         </div>
