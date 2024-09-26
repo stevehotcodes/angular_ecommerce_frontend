@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header  data-cy="header"></app-header>
 <div id="flash-messages" *ngIf="messages">
     <app-flash-message class="{{message.type}}" *ngFor="let message of messages" [message]="message"></app-flash-message>
 </div>
