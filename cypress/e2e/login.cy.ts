@@ -1,9 +1,11 @@
 describe('Login Functionality', ()=>{
+    beforeEach(()=>{
+      cy.visit('/signin')
+    })
   
 
     it('should visit the login page', ()=>{
-        cy.wait(2000)
-        cy.visit('/signin')
+     
         cy.url().should('includes', 'signin')
         cy.wait(2000)
         cy.get('h2').contains('Sign in').should('be.visible')
@@ -21,11 +23,11 @@ describe('Login Functionality', ()=>{
     })
 
     it('should validate the inputs',()=>{
-        cy.visit('/signin')
+      
         cy.url().should('includes', 'signin')
             
         cy.get('h2').contains('Sign in').should('be.visible')
-        cy.wait(3000)
+        cy.wait(3000);
 
         cy.fixture('invalidData').then((data)=>{
         cy.get("div.form-input input").should('have.attr', 'placeholder', "email@example.com");

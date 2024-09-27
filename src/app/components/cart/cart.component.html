@@ -1,4 +1,4 @@
-<div id="selected-products" *ngIf="cartSvc.cartItems.length">
+<div id="selected-products" *ngIf="cartSvc.cartItems.length" data-cy="selected-products-in-cart">
     <div><div (click)="clearCart()" id="clear-cart-btn" class="cursor-pointer hover-underline">clear cart</div></div>
     <div class="cart-item-div" *ngFor="let cartItem of cartSvc.cartItems">
         <div id="cart-item">
@@ -10,23 +10,23 @@
             </div>
         </div>
 
-        <div id="cart-actions">
+        <div id="cart-actions" data-cy="cart-actions">
             <div id="quantity">
                 <ion-icon name="remove-circle-outline" size="large" class="action-btn" (click)="updateCartItem('decrement',cartItem)"></ion-icon>
                 <div>{{cartItem.quantity}}</div>
                 <ion-icon name="add-circle-outline" size="large" class="action-btn" (click)="updateCartItem('increment',cartItem)"></ion-icon>
             </div>
-            <div id="trash" class="action-btn" (click)="updateCartItem('remove', cartItem)"><ion-icon name="trash" size="large"></ion-icon>Remove</div>
+            <div id="trash" class="action-btn" (click)="updateCartItem('remove', cartItem)" data-cy="remove-cart-item-icon"><ion-icon name="trash" size="large"></ion-icon>Remove</div>
         </div>
     </div>
 </div>
 
-<div id=cart-summary *ngIf="cartSvc.cartItems.length">
-    <div id="cart-summary-title">Cart Summary</div>
+<div id=cart-summary *ngIf="cartSvc.cartItems.length" data-cy="cart-summary-details">
+    <div id="cart-summary-title" data-cy="cart-summary-title">Cart Summary</div>
     <div id="total">Total: {{cartSvc.cartTotal | currency : 'Ksh ' : 'symbol' : '1.2-2' }} </div>
-    <button id="checkout-btn" routerLink="/checkout">Checkout</button>
+    <button id="checkout-btn" routerLink="/checkout"  data-cy="checkout-button">Checkout</button>
 </div>
 
-<div *ngIf="!cartSvc.cartItems.length" id="empty-cart">
-    <img src="../../../assets/empty-cart.png" alt="empty cart">
+<div *ngIf="!cartSvc.cartItems.length" id="empty-cart" data-cy="empty-cart-message">
+    <img src="../../../assets/empty-cart.png" alt="empty cart" data-cy="empty-cart-image">
 </div>

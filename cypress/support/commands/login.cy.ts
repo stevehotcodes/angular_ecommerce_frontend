@@ -13,6 +13,6 @@ Cypress.Commands.add('loginWithValidCredentials',()=>{
     cy.get('[data-cy="signin-password-input"]').type(data.password)
     
    })
-    cy.get("button").should('contain.text', 'Sign in').click()     
+    cy.get("button").should('contain.text', 'Sign in').click();
     
 });

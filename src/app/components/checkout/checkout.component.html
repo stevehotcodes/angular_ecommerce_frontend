@@ -3,13 +3,13 @@
 	<div id="details">
 		<h3>Total: {{cartSvc.cartTotal | currency : 'Ksh ' : 'symbol' : '1.2-2' }}</h3>
 
-		<div id="billing-details" *ngIf="userInfo">
+		<div id="billing-details" *ngIf="userInfo" data-cy="billing-details"> 
 			<h3>Billing Details</h3>
 			<div>Name: {{userInfo.firstname + ' ' + userInfo.lastname}}</div>
 			<div>Address: {{userInfo.email}}</div>
 			<div>Country: Kenya</div>
 		</div>
-		<button id="order-btn" (click)="makeOrder()">Make Order</button>
+		<button id="order-btn" (click)="makeOrder()" data-cy="make-order-button">Make Order</button>
 	</div>
 
 	<div id="order-items">
