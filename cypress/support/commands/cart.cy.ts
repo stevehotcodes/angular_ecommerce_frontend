@@ -9,8 +9,7 @@ Cypress.Commands.add('viewItemInCart',()=>{
     cy.get('[data-cy="header"]').should('be.visible');
     cy.get('[data-cy="header-actions"]').should('be.visible');
     cy.get('[data-cy="cart-icon"]').should('be.visible').click()
-    // cy.get('[data-cy="selected-products-in-cart"]').should('not.exist')
-    
+        
     cy.get('body').then(($body)=>{
         if($body.find('[data-cy="empty-cart-message"]').length>0){
             cy.fixture('cartData').then((data)=>{
@@ -18,7 +17,6 @@ Cypress.Commands.add('viewItemInCart',()=>{
                 cy.get('[data-cy="empty-cart-image"]').should('contains.attr','src',data.emptyCartImage)
                 cy.log('The cart is empty')
             })
-        
         }
         else{
             cy.get('[data-cy="selected-products-in-cart"]').should('exist')
@@ -28,11 +26,6 @@ Cypress.Commands.add('viewItemInCart',()=>{
             cy.get('[data-cy="checkout-button"]').should('contains.text','Checkout').click();
             
         }
-
-
-
-
-
 
 
     })

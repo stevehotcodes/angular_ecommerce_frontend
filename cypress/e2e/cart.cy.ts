@@ -27,4 +27,15 @@ describe('Cart Functionlity',()=>{
         cy.get('[data-cy="cart-summary-title"]').should('contain.text','Cart Summary');
         cy.get('[data-cy="checkout-button"]').should('contains.text','Checkout').click();
     })
+   
+    // it.only('should make an order for the items in the cart',()=>{
+    //     cy.loginWithValidCredentials();
+    //     cy.viewItemInCart();
+    //     cy.get('[data-cy="cart-summary-details"]').should('be.visible');
+    //     cy.get('[data-cy="cart-summary-title"]').should('contain.text','Cart Summary');
+    //     cy.get('[data-cy="checkout-button"]').should('contains.text','Checkout').click();
+    //     cy.get('[data-cy="billing-details"]').should('be.visible');
+        
+    // })
+    
 })

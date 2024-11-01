@@ -24,11 +24,9 @@ describe('Login Functionality', ()=>{
 
     it('should validate the inputs',()=>{
       
-        cy.url().should('includes', 'signin')
-            
+        cy.url().should('includes', 'signin'); 
         cy.get('h2').contains('Sign in').should('be.visible')
         cy.wait(3000);
-
         cy.fixture('invalidData').then((data)=>{
         cy.get("div.form-input input").should('have.attr', 'placeholder', "email@example.com");
         cy.get('[data-cy="signin-email-input"]').type(data.invalidEmail);
