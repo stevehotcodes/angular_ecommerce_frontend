@@ -14,4 +14,6 @@
 // ***********************************************************
 
 // When a command from ./commands is ready to use, import with `import './commands'` syntax
-// import './commands';
+import './commands/login.cy';
+import './commands/cart.cy';
+import './commands/navigation.cy'

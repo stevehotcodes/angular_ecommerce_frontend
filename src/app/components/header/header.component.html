@@ -1,11 +1,11 @@
-<div id="logo" routerLink="">Grabia</div>
+<div id="logo" routerLink="" data-cy="header-logo">Grabia</div>
 <form [formGroup]="searchForm" id="search-form">
     <input type="text" id="query" name="query" required placeholder="Search a product...">
     <ion-icon name="search-outline" size="large" type="submit"></ion-icon>
 </form>
 
-<div id="header-actions">
-    <div id="cart-icon" class="cursor-pointer">
+<div id="header-actions" data-cy="header-actions">
+    <div id="cart-icon" class="cursor-pointer" data-cy="cart-icon">
         <ion-icon name="cart-outline" size="large" routerLink="cart"></ion-icon>
         <div id="cart-counter">{{this.cart.cartItems.length}}</div>
     </div>
